@@ -52,7 +52,7 @@ function deleteTask(req,res) {
 
 function addTotasks(req,res) {
     let {task,duedate,name}=req.body;
-    let sql = `insert into tasks (task,duedate,name) values ($1,$2,$3);`
+    let sql = `insert into tasks (task,duedate,name) values ($1,$2,$3);`;
     let values=[task,duedate,name];
     client.query(sql,values)
     .then(()=>{
