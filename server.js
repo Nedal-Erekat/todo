@@ -58,7 +58,7 @@ function addTotasks(req,res) {
     .then(()=>{
         res.redirect('/');
     })
-}
+};
 
 function taskForm(req,res) {
     res.render('form')
