@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS tasks;
+CREATE TABLE IF NOT EXISTS tasks(
+    id SERIAL PRIMARY KEY,
+    task VARCHAR(255),
+    duedate VARCHAR(255),
+    name VARCHAR(255)
+)
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%task.forEach(ele=>{%>
+
+        <form name="myForm" action="/addTotasks" method="post">
+            <input value="<%=ele.task%>" type="text" name="task" placeholder="task">
+            <input value="<%=ele.duedate%>" type="date" name="duedate" placeholder="duedate">
+            <input value="<%=ele.name%>" type="text" name="name" placeholder="name">
+    
+            <input type="submit" value="Submit">
+            </form>
+    <%})%>
+    
+</body>
+</html>

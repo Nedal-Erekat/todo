@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    HERE will find the taskes
+    <a href="/form">form</a>
+
+    <table>
+        <tr>
+            <th>task</th>
+            <th>date</th>
+            <th>name</th>
+        </tr>
+        <%allTasks.forEach(task=>{%>
+        <tr>
+            <td><%=task.task%></td>
+            <td><%=task.duedate%></td>
+            <td><%=task.name%></td>
+            <td>
+                <form action="/delet/<%=task.id%>?_method=delete" method="post">
+                <input type="submit" value="Dele">
+                </form>
+            </td>
+            <td>
+                <form action="/edit/<%=task.id%>" method="post">
+                <input type="submit" value="edit">
+                </form>
+            </td>
+        </tr>
+        <%})%>
+    </table>
+</body>
+
+</html>
