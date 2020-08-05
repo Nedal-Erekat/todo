@@ -28,7 +28,6 @@ function editform(req,res) {
     let sql=`select * from tasks where id=${req.params.id};`;
     client.query(sql)
     .then(data=>{
-
         res.render('edit',{task:data.rows});
     })
     
