@@ -4,21 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>Home</title>
 </head>
 
 <body>
     HERE will find the taskes
     <a href="/form">form</a>
+    <form action="/" method="get" id="formList">
+
+        <select name="list" id="list">
+            <option value="all">chose name ...</option>
+            <option value="all">all</option>
+            <%nameList.forEach(ele=>{%>
+            <option value="<%=ele.name%>"><%=ele.name%></option>
+            <%})%>
+        </select>
+    </form>
 
     <table>
         <tr>
+            <th>id</th>
             <th>task</th>
             <th>date</th>
             <th>name</th>
         </tr>
-        <%allTasks.forEach(task=>{%>
-        <tr>
+        <%allTasks.forEach((task,i)=>{%>
+        <tr class="task" id="<%=task.name%>">
+            <td><%=i+1%></td>
             <td><%=task.task%></td>
             <td><%=task.duedate%></td>
             <td><%=task.name%></td>
@@ -35,6 +48,7 @@
         </tr>
         <%})%>
     </table>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>

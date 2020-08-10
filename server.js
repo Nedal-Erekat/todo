@@ -23,6 +23,8 @@ app.get('/form',taskForm);
 app.post('/addTotasks',addTotasks);
 app.delete('/delet/:id',deleteTask);
 app.post('/edit/:id',editform);
+app.put('/update/:id',updateTask);
+
 
 function editform(req,res) {
     let sql=`select * from tasks where id=${req.params.id};`;
@@ -64,12 +66,20 @@ function taskForm(req,res) {
 }
 
 function loadTasks(req,res) {
+    console.log(req.query.list);
+    let check=req.query.list
+
     let sql=`select * from tasks;`;
+    if(check && check!='all'){
+        sql=`select * from tasks where name='${req.query.list}';`;
+    }
+    let sql2=`select distinct name from tasks;`;
     client.query(sql)
     .then(data=>{
-        console.log('hereeeeeeeeee');
-        // res.json(data.rows)
-        res.render('index',{allTasks : data.rows})
+        client.query(sql2)
+        .then(result=>{
+            res.render('index',{allTasks : data.rows, nameList:result.rows})
+        })
     })
 }
 
